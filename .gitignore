@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/packages
+/DataLayer/obj/Debug
+/DataLayer/bin/Debug
+/AspGridView/obj/Debug
+/AspGridView/bin
+*.suo

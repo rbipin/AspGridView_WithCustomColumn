@@ -61,6 +61,7 @@ namespace AspDataGrid
         protected void aspGridView_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             Button approveOrderBtn = null;
+            Button clearnBtn = null;
             DataRowView datarow = null;
             Label approvedBy = null;
             Label alertText = null;
@@ -81,10 +82,13 @@ namespace AspDataGrid
                     else
                     {
                         approveOrderBtn = (Button)e.Row.FindControl("btnApproveOrder");
+                        clearnBtn = (Button)e.Row.FindControl("btnClear");
                         alertText = (Label)e.Row.FindControl("alertMsg");
                         approvalid = (TextBox)e.Row.FindControl("txtApproveId");
                         if (approveOrderBtn != null)
                             approveOrderBtn.OnClientClick = "return ValidateInput('" + approvalid.ClientID + "','" + alertText.ClientID + "')";
+                        if (clearnBtn!=null)
+                            clearnBtn.OnClientClick= "return ClearInputField('"+approvalid.ClientID+"')";
                     }
                 }
             }
