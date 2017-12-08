@@ -67,7 +67,7 @@
                                 </div>
                                 <div>
                                     <asp:Button ID="btnApproveOrder" ClientIDMode="Predictable" Text="Approve Order" runat="server" CssClass="button" CommandName="ApproveOrder" CommandArgument="<%#((GridViewRow)Container).RowIndex %>" />
-                                    <asp:Button ID="btnClear" Text="Clear" runat="server" CssClass="button" />
+                                    <asp:Button ID="btnClear" ClientIDMode="Predictable" Text="Clear" runat="server" CssClass="button" />
                                 </div>
                             </section>
                             <asp:Label ID="txtapprovedBy" runat="server" Visible="false" Text='<%# "Approved By " + Eval("APPROVAL_ID") %>' CssClass="approvedByMsg"></asp:Label>
@@ -80,7 +80,7 @@
 
     <script type="text/javascript">
         
-        //
+        //Validate the control to see if data is entered
         function ValidateInput(txtcontrolid,lblalertid)
         {
             txtBox = document.getElementById(txtcontrolid);
@@ -91,6 +91,17 @@
                 return false;
             }
             return true;
+        }
+
+        //Clear the button field
+        function ClearInputField(txtInputField)
+        {
+            txtinput = document.getElementById(txtInputField);
+            if (txtinput!=null)
+            {
+                txtinput.value = "";
+            }
+            return false;
         }
     </script>
 </asp:Content>
